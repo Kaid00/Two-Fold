@@ -68,7 +68,9 @@ struct CustomFont: ViewModifier {
         }
     }
     
+    
     var style: Font.TextStyle {
+        
         switch textStyle {
         case .largeTitle:
             return .largeTitle
