@@ -37,6 +37,7 @@ struct ChatCard: View {
                 HStack(spacing: 10) {
                     Text(chat.lastMsg)
                         .customFont(.callout)
+                        .foregroundColor(.secondary)
                     Spacer()
                     if chat.numberUnreadMsgs >= 1 {
                         Text("\(chat.numberUnreadMsgs)")
@@ -52,7 +53,7 @@ struct ChatCard: View {
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity)
-        .frame(height: 110)
+        .frame(height: 100)
         .preferredColorScheme(.dark)
     }
 }
