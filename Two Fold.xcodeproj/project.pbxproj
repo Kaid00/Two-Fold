@@ -17,6 +17,9 @@
 		69BB4DB8296276C000B7E8B9 /* DailyPickCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB4DB7296276C000B7E8B9 /* DailyPickCard.swift */; };
 		69BB4DBA2962780800B7E8B9 /* DailyPick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB4DB92962780800B7E8B9 /* DailyPick.swift */; };
 		69BB4DBC29628AF100B7E8B9 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB4DBB29628AF100B7E8B9 /* Friends.swift */; };
+		69BB4DC029628CE200B7E8B9 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB4DBF29628CE200B7E8B9 /* ConversationView.swift */; };
+		69BB4DC62962934000B7E8B9 /* ChatCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB4DC52962934000B7E8B9 /* ChatCard.swift */; };
+		69BB4DC82962988100B7E8B9 /* Conversations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB4DC72962988100B7E8B9 /* Conversations.swift */; };
 		69C8FFA9295CD71500894030 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8FFA8295CD71500894030 /* SignInView.swift */; };
 		69C8FFAB295CDEB100894030 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8FFAA295CDEB100894030 /* CustomTextField.swift */; };
 		69C8FFAD295D08AE00894030 /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8FFAC295D08AE00894030 /* CustomModal.swift */; };
@@ -53,6 +56,9 @@
 		69BB4DB7296276C000B7E8B9 /* DailyPickCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPickCard.swift; sourceTree = "<group>"; };
 		69BB4DB92962780800B7E8B9 /* DailyPick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPick.swift; sourceTree = "<group>"; };
 		69BB4DBB29628AF100B7E8B9 /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
+		69BB4DBF29628CE200B7E8B9 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		69BB4DC52962934000B7E8B9 /* ChatCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCard.swift; sourceTree = "<group>"; };
+		69BB4DC72962988100B7E8B9 /* Conversations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversations.swift; sourceTree = "<group>"; };
 		69C8FFA8295CD71500894030 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		69C8FFAA295CDEB100894030 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		69C8FFAC295D08AE00894030 /* CustomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModal.swift; sourceTree = "<group>"; };
@@ -127,9 +133,52 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		69BB4DBD29628CA200B7E8B9 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				69BB4DC229628CF800B7E8B9 /* Model */,
+				69BB4DC129628CEC00B7E8B9 /* View model */,
+				69BB4DC429628D0900B7E8B9 /* Views */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		69BB4DBE29628CAB00B7E8B9 /* Love */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Love;
+			sourceTree = "<group>";
+		};
+		69BB4DC129628CEC00B7E8B9 /* View model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View model";
+			sourceTree = "<group>";
+		};
+		69BB4DC229628CF800B7E8B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				69BB4DC72962988100B7E8B9 /* Conversations.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		69BB4DC429628D0900B7E8B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				69BB4DBF29628CE200B7E8B9 /* ConversationView.swift */,
+				69BB4DC52962934000B7E8B9 /* ChatCard.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		69C8FFB2295D17A900894030 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				69BB4DBE29628CAB00B7E8B9 /* Love */,
+				69BB4DBD29628CA200B7E8B9 /* Conversation */,
 				69C8FFBA295D188200894030 /* Home */,
 				69C8FFB5295D17D300894030 /* Onboarding */,
 			);
@@ -352,6 +401,7 @@
 				69BB4DB629609C8700B7E8B9 /* HomeView.swift in Sources */,
 				69C8FFC2295DCD5C00894030 /* PreferenceBtn.swift in Sources */,
 				69C8FFA9295CD71500894030 /* SignInView.swift in Sources */,
+				69BB4DC82962988100B7E8B9 /* Conversations.swift in Sources */,
 				69BB4DBA2962780800B7E8B9 /* DailyPick.swift in Sources */,
 				697F63B7295B5EF100277E0A /* OnboardingView.swift in Sources */,
 				69E0ACBD295BB6D10025AD0E /* CustomFont.swift in Sources */,
@@ -361,10 +411,12 @@
 				69E0ACBF295BD1110025AD0E /* Extensions.swift in Sources */,
 				696F2F9F295A7DA000FACEF5 /* ContentView.swift in Sources */,
 				69BB4DAD295E269200B7E8B9 /* TabBar.swift in Sources */,
+				69BB4DC62962934000B7E8B9 /* ChatCard.swift in Sources */,
 				69C8FFAF295D0BD000894030 /* SignUpView.swift in Sources */,
 				696F2F9D295A7DA000FACEF5 /* Two_FoldApp.swift in Sources */,
 				69BB4DB8296276C000B7E8B9 /* DailyPickCard.swift in Sources */,
 				69C8FFC0295D193500894030 /* PreferencesView.swift in Sources */,
+				69BB4DC029628CE200B7E8B9 /* ConversationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

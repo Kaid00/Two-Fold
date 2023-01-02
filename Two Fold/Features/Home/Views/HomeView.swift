@@ -25,7 +25,7 @@ struct HomeView: View {
                                     .scaledToFill()
                                     .mask(Circle())
                                     .overlay(
-                                        Circle().stroke(Color("highlight 2"), lineWidth: 2)
+                                        Circle().stroke(Color("highlight 2"), lineWidth: 3)
                                     )
                                     .frame(width: 70, height: 70)
                                     .overlay(content: {

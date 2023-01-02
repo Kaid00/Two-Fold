@@ -40,6 +40,16 @@ extension Image {
             .shadow(color: Color(.gray).opacity(0.2), radius: 5, x: 0, y: 4)
             .shadow(color: Color(.gray).opacity(0.1), radius: 5, x: 0, y: 7)
     }
+    
+    func customTextFieldIcon() -> some View {
+        self
+            .resizable()
+            .scaledToFit()
+            .frame(width: 26, height: 26)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 8)
+            .foregroundColor(.black)
+    }
 }
 
 

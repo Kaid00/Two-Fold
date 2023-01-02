@@ -15,7 +15,7 @@ struct ContentView: View {
             case .home:
                 HomeView()
             case .chat:
-                Text("chat")
+                ConversationView()
             case .love:
                 Text("love")
             case .user:

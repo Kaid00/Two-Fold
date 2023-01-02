@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomTextField: ViewModifier {
     var imageName: String
+    var isSystemImage: Bool?
     
     func body(content: Content) -> some View {
         
@@ -18,20 +19,29 @@ struct CustomTextField: ViewModifier {
             .padding(.leading, 36)
             .background(.white)
             .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
-            .overlay(
-                Image(imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 26, height: 26)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 8)
-            )
+            .overlay{
+                ZStack {
+                    if isSystemImage ?? false {
+                        Image(systemName: imageName)
+                            .customTextFieldIcon()
+                            .opacity(0.6)
+                    } else {
+                        Image(imageName)
+                            .customTextFieldIcon()
+                    }
+                }
+              
+                
+            }
     }
 }
 
 extension View {
-    func customTextField(_ imageName: String = "google") -> some View {
-        modifier(CustomTextField(imageName: imageName))
+    func customTextField(_ imageName: String = "google", _ isSystemImage:Bool? = false) -> some View {
+        modifier(CustomTextField(imageName: imageName, isSystemImage: isSystemImage))
    }
 
 }
+
+
+
