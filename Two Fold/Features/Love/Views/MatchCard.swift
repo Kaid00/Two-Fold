@@ -1,5 +1,5 @@
 //
-//  DailyPickCard.swift
+//  MatchCard.swift
 //  Two Fold
 //
 //  Created by Azamah Junior Khan on 02/01/2023.
@@ -7,17 +7,15 @@
 
 import SwiftUI
 
-struct DailyPickCard: View {
-    var dailyPick: DailyPick
-    var width: CGFloat = 220
-    var height: CGFloat = 320
-    
+struct MatchCard: View, Identifiable {
+    var id = UUID()
+    var match: Matches
     var body: some View {
         VStack {
-            Image(dailyPick.profilePicture)
+            Image(match.profilePic)
                 .resizable()
                 .scaledToFill()
-                .frame(width: width, height: height)
+                .frame(maxWidth: 310, maxHeight: 520)
             
         }
         .background(.white)
@@ -26,12 +24,13 @@ struct DailyPickCard: View {
             VStack {
                 Spacer()
                 VStack(alignment: .leading) {
-                    Text(dailyPick.teamName)
-                        .customFont(.title3, 18)
+                    Text(match.teamName)
+                        .customFont(.title)
                         .layoutPriority(1)
-                    
-                    Text(dailyPick.location)
-                        .customFont(.caption)
+                        .frame(maxWidth: 250, alignment: .leading)
+                                        
+                    Text(match.location)
+                        .customFont(.callout)
                     
                 }
                 .foregroundColor(.white)
@@ -46,8 +45,8 @@ struct DailyPickCard: View {
     }
 }
 
-struct DailyPickCard_Previews: PreviewProvider {
+struct MatchCard_Previews: PreviewProvider {
     static var previews: some View {
-        DailyPickCard(dailyPick: dailyPick[0])
+        MatchCard(match: matches[0])
     }
 }
