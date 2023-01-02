@@ -13,7 +13,7 @@ struct ContentView: View {
         ZStack {
             switch selectedTab {
             case .home:
-                Text("Home")
+                HomeView()
             case .chat:
                 Text("chat")
             case .love:
