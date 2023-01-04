@@ -25,13 +25,35 @@ struct ConversationView: View {
                 }
                 .padding()
                 
-                
                 Spacer()
                 
                 ScrollView(showsIndicators: true) {
-                    TextField("Search", text: $search)
-                        .customTextField("magnifyingglass", true)
-                        .padding(.horizontal)
+
+                    HStack {
+                        TextField("", text: $search)
+                            .customFont(.body)
+                            .padding(6)
+                            .padding(.leading, 30)
+                            .background(.ultraThinMaterial)
+                            .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            .overlay(content: {
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .stroke()
+                                    .opacity(0.1)
+                            })
+                            .overlay(content: {
+                                Image(systemName: "magnifyingglass")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.leading, 5)
+                                    .foregroundColor(.secondary)
+                            })
+                        
+                        Image(systemName: "line.3.horizontal.decrease")
+                            .foregroundColor(Color("highlight 2"))
+                            .padding(.leading, 10)
+                    }
+                    .padding(.horizontal)
+                    
                     ForEach(conversations) { chat in
                         ChatCard(chat: chat)
                         
