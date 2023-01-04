@@ -15,7 +15,7 @@ struct MessageBubble: View {
                 HStack {
                     if message.received {
                         VStack {
-                            Image("user 1")
+                            Image("user 4")
                                 .resizable()
                                 .scaledToFill()
                                 .mask(Circle())

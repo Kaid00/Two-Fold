@@ -8,29 +8,53 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State var text: String = ""
-    @State var showSendIcon: Bool = false
-    
     @ObservedObject var viewModel = ChatViewModel()
+    @Binding var openChat: Bool
+    @Binding var dismissTabBar: Bool
+    @State var showSendIcon: Bool = false
+
+    
     
     var body: some View {
         ZStack {
             Color("background")
                 .ignoresSafeArea()
             VStack(spacing: 0) {
+                Button {
+                    withAnimation(.easeOut(duration: 0.2)) {
+                        openChat = false
+                        dismissTabBar = false
+                    }
+                } label: {
+                    Label("Back",systemImage: "arrow.left")
+                        .foregroundColor(Color("highlight 2"))
+                        .customFont(.headline)
+                        .padding(.leading, 20)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
                 VStack{
                     ChatTitleRow()
                         .background(Color("background"))
                     
-                    ScrollView(showsIndicators: true) {
-                        ForEach(viewModel.message) { message in
-                            MessageBubble(message: message)
+                    ScrollViewReader { proxy in
+                        ScrollView(showsIndicators: true) {
+                            ForEach(viewModel.message) { message in
+                                MessageBubble(message: message)
+                            }
+                            
                         }
-                        
+                        .padding(.vertical, 10)
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(20, corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])
+                        .onChange(of: viewModel.lastMsgId, perform: { id in
+                            withAnimation {
+                                proxy.scrollTo(id, anchor: .bottom)
+
+                            }
+                        })
                     }
-                    .padding(.top, 10)
-                    .background(.ultraThinMaterial)
-                    .cornerRadius(20, corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])
+                    .padding(8)
                     
                 }
                 
@@ -118,6 +142,6 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView()
+        ChatView(openChat: .constant(false), dismissTabBar: .constant(false))
     }
 }

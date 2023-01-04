@@ -10,6 +10,7 @@ import SwiftUI
 
 class ChatViewModel: ObservableObject {
     @Published var text: String = ""
+    @Published var lastMsgId: UUID = UUID()
     
     @Published var message: [Message] = [
         Message( text: "Hi there, ✋", received: true, timestamp: Date() + 2000),
@@ -28,9 +29,20 @@ class ChatViewModel: ObservableObject {
     
     func send() {
         message.append(Message(text: self.text, received: false, timestamp: .now))
+        if let id  = message.last?.id {
+            self.lastMsgId = id
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             self.message.append(Message(text: "Alright then 😅 ", received: true, timestamp: .now + 3))
+            
+            if let id  = self.message.last?.id {
+                self.lastMsgId = id
+            }
         })
+        
+        
+        
         self.text = ""
     }
 }
