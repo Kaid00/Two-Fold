@@ -10,6 +10,9 @@ import SwiftUI
 struct ChatView: View {
     @State var text: String = ""
     @State var showSendIcon: Bool = false
+    
+    @ObservedObject var viewModel = ChatViewModel()
+    
     var body: some View {
         ZStack {
             Color("background")
@@ -20,7 +23,7 @@ struct ChatView: View {
                         .background(Color("background"))
                     
                     ScrollView(showsIndicators: true) {
-                        ForEach(message) { message in
+                        ForEach(viewModel.message) { message in
                             MessageBubble(message: message)
                         }
                         
@@ -44,7 +47,7 @@ struct ChatView: View {
                 .customChatIcon(22)
             
             if #available(iOS 16.0, *) {
-                TextField("", text: $text, axis: .vertical)
+                TextField("", text: $viewModel.text, axis: .vertical)
                     .customFont(.body)
                     .lineLimit(6)
                     .padding(5)
@@ -56,7 +59,7 @@ struct ChatView: View {
                             .opacity(0.1)
                     })
             } else {
-                TextField("", text: $text)
+                TextField("", text: $viewModel.text)
                     .customFont(.body)
                     .padding(5)
                     .background(.ultraThinMaterial)
@@ -71,9 +74,16 @@ struct ChatView: View {
             
             
             if showSendIcon {
-                Image(systemName: "paperplane.circle.fill")
-                    .customChatIcon(24)
+                Button {
+                    viewModel.send()
+                    withAnimation {
+                        showSendIcon = false
+                    }
+                } label: {
+                    Image(systemName: "paperplane.circle.fill")
+                        .customChatIcon(24)
                     .transition(.move(edge: .leading).combined(with: .opacity))
+                }
                 
             } else {
                 
@@ -91,8 +101,8 @@ struct ChatView: View {
         .padding(.horizontal, 12)
         .padding(.top, 10)
         .background(Color("background"))
-        .onChange(of: text, perform: { _ in
-            if text.isEmpty {
+        .onChange(of: viewModel.text, perform: { _ in
+            if viewModel.text.isEmpty {
                 withAnimation{
                     showSendIcon = false
                 }

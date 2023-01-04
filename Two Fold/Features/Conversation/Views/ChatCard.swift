@@ -11,7 +11,6 @@ struct ChatCard: View {
 
     var chat: Conversations
 
-    
     var body: some View {
         HStack(spacing: 16) {
             Image(chat.profilePicture)
