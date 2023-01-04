@@ -9,70 +9,9 @@ import SwiftUI
 
 struct LoveView: View {
     @GestureState private var dragState = DragState.inactive
-    private var dragAreaThreshold: CGFloat = 65.0
-    @State private var lastMatchCardIndex: Int = 1
-    
-    @State var matchCards: [MatchCard] = {
-        var cards = [MatchCard]()
-        for index in 0..<2 {
-            cards.append(MatchCard(match: matches[index]))
-        }
-        
-        
-        return cards
-    }()
-    
-    @State private var cardRemovalTransition = AnyTransition.trailingBottom
-    
-    private func removeCards() {
-        matchCards.removeFirst()
-        
-        self.lastMatchCardIndex += 1
-        let match = matches[lastMatchCardIndex % matches.count]
-        let newMatchCards = MatchCard(match: match)
-        matchCards.append(newMatchCards)
-    }
-    
-    private func isTopCard(card: MatchCard) -> Bool {
-        guard let index = matchCards.firstIndex(where: { $0.id == card.id}) else {
-            return false
-        }
-        
-        return index == 0
-    }
-    
-    enum DragState {
-        case inactive
-        case pressing
-        case dragging(translation: CGSize)
-        
-        var translation: CGSize {
-            switch self {
-            case .inactive, .pressing:
-                return .zero
-            case .dragging(let translation):
-                return translation
-            }
-        }
-        
-        var isDragging: Bool {
-            switch self {
-            case.dragging:
-                return true
-            case .pressing, .inactive:
-                return false
-            }
-        }
-        
-        var isPressing: Bool {
-            switch self {
-            case .pressing, .dragging:
-                return true
-            case .inactive:
-                return false
-            }
-        }
-    }
+    @ObservedObject private var viewModel = LoveViewModel()
+
+
     
     var body: some View {
         ZStack {
@@ -94,16 +33,16 @@ struct LoveView: View {
                 .padding(.horizontal)
                 
                 ZStack {
-                    ForEach(matchCards) { card in
+                    ForEach(viewModel.matchCards) { card in
                         card
-                            .zIndex(self.isTopCard(card: card) ? 1 : 0)
+                            .zIndex(viewModel.isTopCard(card: card) ? 1 : 0)
                             .overlay {
                                 ZStack {
                                     Image(systemName: "x.circle.fill")
                                         .symbolRenderingMode(.palette)
                                         .foregroundStyle(.white, .pink)
                                         .customFont(.headline, 70)
-                                        .opacity(self.dragState.translation.width < -self.dragAreaThreshold && self.isTopCard(card: card) ? 1.0 : 0.0)
+                                        .opacity(self.dragState.translation.width < -viewModel.dragAreaThreshold && viewModel.isTopCard(card: card) ? 1.0 : 0.0)
                                         .animation(.default, value: self.dragState.translation.width)
 
                                      
@@ -111,23 +50,23 @@ struct LoveView: View {
                                         .symbolRenderingMode(.palette)
                                         .foregroundStyle(.white, Color("highlight 2"))
                                         .customFont(.headline, 70)
-                                        .opacity(self.dragState.translation.width > self.dragAreaThreshold && self.isTopCard(card: card) ? 1.0 : 0.0)
+                                        .opacity(self.dragState.translation.width > viewModel.dragAreaThreshold && viewModel.isTopCard(card: card) ? 1.0 : 0.0)
                                         .animation(.default, value: self.dragState.translation.width)
                                 }
                             }
-                            .blur(radius: self.isTopCard(card: card) ? 0 : 1)
+                            .blur(radius: viewModel.isTopCard(card: card) ? 0 : 1)
                             .overlay{
                                 RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                    .fill(self.isTopCard(card: card) ? .black.opacity(0) : .black.opacity(0.4))
+                                    .fill(viewModel.isTopCard(card: card) ? .black.opacity(0) : .black.opacity(0.4))
                                     .frame(maxWidth: 310, maxHeight: 520)
                             }
-                            .offset(x: self.isTopCard(card: card) ?
+                            .offset(x: viewModel.isTopCard(card: card) ?
                                     self.dragState.translation.width : 20,
-                                    y: self.isTopCard(card: card) ?
+                                    y: viewModel.isTopCard(card: card) ?
                                     self.dragState.translation.height : -12)
-                            .scaleEffect(self.dragState.isDragging && self.isTopCard(card: card) ? 0.9 : 1.0)
+                            .scaleEffect(self.dragState.isDragging && viewModel.isTopCard(card: card) ? 0.9 : 1.0)
                             .animation(.default, value: self.dragState.isDragging)
-                            .rotationEffect(Angle(degrees: self.isTopCard(card: card) ? Double(self.dragState.translation.width / 12) : 5))
+                            .rotationEffect(Angle(degrees: viewModel.isTopCard(card: card) ? Double(self.dragState.translation.width / 12) : 5))
                             .gesture(LongPressGesture(minimumDuration: 0.01)
                                 .sequenced(before: DragGesture())
                                 .updating(self.$dragState, body: { (value, state, transaction) in
@@ -151,12 +90,12 @@ struct LoveView: View {
                                             return
                                         }
                                         
-                                        if drag.translation.width < -self.dragAreaThreshold {
-                                            self.cardRemovalTransition = .leadingBottom
+                                        if drag.translation.width < -viewModel.dragAreaThreshold {
+                                            viewModel.cardRemovalTransition = .leadingBottom
                                         }
                                         
-                                        if drag.translation.width > self.dragAreaThreshold {
-                                            self.cardRemovalTransition = .trailingBottom
+                                        if drag.translation.width > viewModel.dragAreaThreshold {
+                                            viewModel.cardRemovalTransition = .trailingBottom
                                         }
                                     })
                                     .onEnded( { (value) in
@@ -164,14 +103,14 @@ struct LoveView: View {
                                             return
                                         }
                                         
-                                        if drag.translation.width < -self.dragAreaThreshold || drag.translation.width > self.dragAreaThreshold {
+                                        if drag.translation.width < -viewModel.dragAreaThreshold || drag.translation.width > viewModel.dragAreaThreshold {
                                             withAnimation() {
-                                                self.removeCards()
+                                                viewModel.removeCards()
                                             }
                                         }
                                     })
                             )
-                            .transition(self.cardRemovalTransition.combined(with: .opacity))
+                            .transition(viewModel.cardRemovalTransition.combined(with: .opacity))
                         
                     }
                 }
@@ -191,9 +130,7 @@ struct LoveView: View {
                 .padding(.horizontal)
                 
                 Spacer(minLength: 20)
-
-
-                
+     
             }
         }
         .preferredColorScheme(.dark)
