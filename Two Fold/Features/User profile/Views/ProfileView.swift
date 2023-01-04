@@ -82,9 +82,9 @@ struct ProfileView: View {
             
             VStack(spacing: 10) {
                 HStack {
-                    Text("Karl,")
+                    Text("Ari,")
                         .customFont(.largeTitle)
-                    Text("27")
+                    Text("22")
                         .customFont(.body, 32)
                     
                     Image(systemName: "checkmark.circle.fill")

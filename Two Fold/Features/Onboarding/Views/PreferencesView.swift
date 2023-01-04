@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PreferencesView: View {
     @ObservedObject var viewModel = SetupViewModel()
-    @State private var image: Image?
     
     var body: some View {
         ZStack {
@@ -160,13 +159,13 @@ struct PreferencesView: View {
                 
                 VStack {
                     
-                    image?
+                    viewModel.image?
                         .resizable()
                         .scaledToFill()
                         .frame(maxWidth: 380, maxHeight: 380)
                         .mask(RoundedRectangle(cornerRadius: 20, style: .continuous))
                     
-                    if image == nil {
+                    if viewModel.image == nil {
                         VStack {
                             Image(systemName: "person.fill")
                                 .customFont(.title, 100)
@@ -191,7 +190,7 @@ struct PreferencesView: View {
                     viewModel.showingOptions = true
                 }
                 
-                if image == nil {
+                if viewModel.image == nil {
                     Text("Select or take profile photo")
                         .customFont(.callout)
                         .padding()
@@ -216,7 +215,7 @@ struct PreferencesView: View {
                 }
             }
             .sheet(isPresented: $viewModel.showImagePicker) {
-                SUImagePickerView(sourceType: self.viewModel.showCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$viewModel.showImagePicker) }
+                SUImagePickerView(sourceType: self.viewModel.showCamera ? .camera : .photoLibrary, image: self.$viewModel.image, isPresented: self.$viewModel.showImagePicker) }
             .confirmationDialog("Upload a profile photo", isPresented: $viewModel.showingOptions, titleVisibility: .visible) {
                 Button("Take Photo") {
                     self.viewModel.showImagePicker = true

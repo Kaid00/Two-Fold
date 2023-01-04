@@ -10,8 +10,6 @@ import SwiftUI
 struct LoveView: View {
     @GestureState private var dragState = DragState.inactive
     @ObservedObject private var viewModel = LoveViewModel()
-
-
     
     var body: some View {
         ZStack {
@@ -19,13 +17,13 @@ struct LoveView: View {
                 .ignoresSafeArea()
             VStack(spacing: 20) {
                 HStack(spacing: 16) {
-                    Image("Team 4")
+                    Image(viewModel.teamProfile)
                         .resizable()
                         .scaledToFill()
                         .mask(Circle())
                         .frame(width: 50, height: 50)
                     
-                    Text("Jay & Glen")
+                    Text(viewModel.teamName)
                         .customFont(.title3)
 
                 }

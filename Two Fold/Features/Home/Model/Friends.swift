@@ -14,7 +14,7 @@ struct Friends: Identifiable {
 }
 
 let friends: [Friends] = [
-    Friends(name: "Alex.k", profilePic: "user 1"),
+    Friends(name: "Ari", profilePic: "user 1"),
     Friends(name: "William .A", profilePic: "user 2"),
     Friends(name: "Jammie .k", profilePic: "user 3"),
     Friends(name: "Brendell", profilePic: "user 4"),

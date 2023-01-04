@@ -10,6 +10,7 @@ import SwiftUI
 
 class SetupViewModel: ObservableObject {
     @AppStorage("userSetupCompleted") var userSetupCompleted = false
+    @Published var image: Image?
 
     
     @Published var interests: [String] = ["Dancing", "Cooking", "Sports", "Photography", "Music", "Politics", "Traveling", "Art", "Eating", "Sleeping", "Reading", "Writing", "Technology", "Design", "Coding", "Chess", "Coffee", "Vlogging", "Sketching", "TikTok"]
