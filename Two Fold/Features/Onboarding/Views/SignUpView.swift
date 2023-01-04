@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 struct SignUpView: View {
+    @ObservedObject var viewModel = OnboardingViewModel()
     @State var email: String = ""
     @State var password: String = ""
     @State var name: String = ""
+    @State var isLoading: Bool = false
+
+    let confetti = RiveViewModel(fileName: "confetti", stateMachineName: "State Machine 1")
+
 
     var body: some View {
         VStack(spacing: 20) {
@@ -48,6 +54,24 @@ struct SignUpView: View {
             }
         }
         .customModal()
+        .overlay {
+            VStack {
+                if viewModel.isLoading {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                        .allowsHitTesting(false)
+                    
+                    Spacer()
+                }
+                
+                confetti.view()
+                    .scaleEffect(2)
+                    .allowsHitTesting(false)
+                
+            }
+            
+            
+        }
     }
     
     
@@ -58,7 +82,7 @@ struct SignUpView: View {
                     .customFont(.subhead)
                     .foregroundColor(.secondary)
                 TextField("", text: $email)
-                    .customTextField("google")
+                    .customTextField("envelope.fill", true)
                     .keyboardType(.emailAddress)
                 
             }
@@ -68,7 +92,7 @@ struct SignUpView: View {
                     .customFont(.subhead)
                     .foregroundColor(.secondary)
                 TextField("", text: $name)
-                    .customTextField("google")
+                    .customTextField("person.fill", true)
                     .keyboardType(.namePhonePad)
 
                 
@@ -79,11 +103,13 @@ struct SignUpView: View {
                     .customFont(.subhead)
                     .foregroundColor(.secondary)
                 SecureField("", text: $password)
-                    .customTextField("apple")
+                    .customTextField("lock.fill", true)
                 
             }
             
-            Button {} label: {
+            Button {
+                viewModel.signUp(confetti: confetti)
+            } label: {
                 Label("Sign up",systemImage: "arrow.right")
                     .customSubmitBtn()
             }

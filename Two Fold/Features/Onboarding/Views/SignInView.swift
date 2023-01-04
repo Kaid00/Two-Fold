@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 struct SignInView: View {
+    @ObservedObject var viewModel = OnboardingViewModel()
     @State var email: String = ""
     @State var password: String = ""
+    @State var isLoading: Bool = false
+    let confetti = RiveViewModel(fileName: "confetti", stateMachineName: "State Machine 1")
+    let check = RiveViewModel(fileName: "check", stateMachineName: "State Machine 1")
     
     
     var body: some View {
@@ -17,7 +22,7 @@ struct SignInView: View {
         VStack(spacing: 20) {
             Text("Sign In")
                 .customFont(.largeTitle)
-            Text("You are moments away from a dream double date")
+            Text("Continue your pursuit for the dream double date match")
                 .customFont(.headline)
                 .multilineTextAlignment(.center)
             
@@ -26,9 +31,8 @@ struct SignInView: View {
                     .customFont(.subhead)
                     .foregroundColor(.secondary)
                 TextField("", text: $email)
-                    .customTextField("google")
+                    .customTextField("envelope.fill", true)
                     .keyboardType(.emailAddress)
- 
                 
             }
             
@@ -37,11 +41,12 @@ struct SignInView: View {
                     .customFont(.subhead)
                     .foregroundColor(.secondary)
                 SecureField("", text: $password)
-                    .customTextField("apple")
-                
+                    .customTextField("lock.fill", true)
             }
             
-            Button {} label: {
+            Button {
+                viewModel.signIn(confetti: confetti)
+            } label: {
                 Label("Sign in",systemImage: "arrow.right")
                     .customSubmitBtn()
             }
@@ -78,6 +83,28 @@ struct SignInView: View {
             }
         }
         .customModal()
+        .overlay{
+            VStack {
+                if viewModel.isLoading {
+//                    check.view()
+//                        .frame(width: 60, height: 60)
+//                        .allowsHitTesting(false)
+                    ProgressView()
+                        .scaleEffect(1.4)
+                        .allowsHitTesting(false)
+                    
+                    Spacer()
+                }
+                confetti.view()
+                    .scaleEffect(2)
+                    .allowsHitTesting(false)
+                
+                
+            }
+            
+            
+        }
+        
     }
     
 }
