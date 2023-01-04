@@ -46,6 +46,7 @@ struct SetupProfileView: View {
                 }
                 Spacer()
             }
+            
         }
         .preferredColorScheme(.dark)
         

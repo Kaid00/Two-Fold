@@ -28,6 +28,8 @@
 		69BB4DD4296335A200B7E8B9 /* LoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB4DD3296335A200B7E8B9 /* LoveView.swift */; };
 		69BB4DDB2963436900B7E8B9 /* MatchCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB4DDA2963436900B7E8B9 /* MatchCard.swift */; };
 		69BB4DDD2963438800B7E8B9 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB4DDC2963438800B7E8B9 /* Matches.swift */; };
+		69BB4DDF2964A2F400B7E8B9 /* SetupProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB4DDE2964A2F400B7E8B9 /* SetupProfileView.swift */; };
+		69BB4DE52964B4F600B7E8B9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB4DE42964B4F600B7E8B9 /* ProfileView.swift */; };
 		69C8FFA9295CD71500894030 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8FFA8295CD71500894030 /* SignInView.swift */; };
 		69C8FFAB295CDEB100894030 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8FFAA295CDEB100894030 /* CustomTextField.swift */; };
 		69C8FFAD295D08AE00894030 /* CustomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8FFAC295D08AE00894030 /* CustomModal.swift */; };
@@ -36,10 +38,8 @@
 		69C8FFC0295D193500894030 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8FFBF295D193500894030 /* PreferencesView.swift */; };
 		69C8FFC2295DCD5C00894030 /* PreferenceBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8FFC1295DCD5C00894030 /* PreferenceBtn.swift */; };
 		69E0ACA3295BA5460025AD0E /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 69E0ACA2295BA5460025AD0E /* RiveRuntime */; };
-		69E0ACA5295BA62F0025AD0E /* test.riv in Resources */ = {isa = PBXBuildFile; fileRef = 69E0ACA4295BA62F0025AD0E /* test.riv */; };
 		69E0ACAD295BA8D80025AD0E /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = 69E0ACAC295BA8CF0025AD0E /* shapes.riv */; };
 		69E0ACAE295BA8DA0025AD0E /* menu_button.riv in Resources */ = {isa = PBXBuildFile; fileRef = 69E0ACA8295BA8CF0025AD0E /* menu_button.riv */; };
-		69E0ACAF295BA8DD0025AD0E /* house.riv in Resources */ = {isa = PBXBuildFile; fileRef = 69E0ACAB295BA8CF0025AD0E /* house.riv */; };
 		69E0ACB0295BA8E20025AD0E /* confetti.riv in Resources */ = {isa = PBXBuildFile; fileRef = 69E0ACA9295BA8CF0025AD0E /* confetti.riv */; };
 		69E0ACB1295BA8E50025AD0E /* check.riv in Resources */ = {isa = PBXBuildFile; fileRef = 69E0ACA7295BA8C80025AD0E /* check.riv */; };
 		69E0ACB2295BA8EA0025AD0E /* button.riv in Resources */ = {isa = PBXBuildFile; fileRef = 69E0ACA6295BA8C30025AD0E /* button.riv */; };
@@ -49,6 +49,14 @@
 		69E0ACBA295BB5DB0025AD0E /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69E0ACB9295BB5DB0025AD0E /* Poppins-Bold.ttf */; };
 		69E0ACBD295BB6D10025AD0E /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E0ACBC295BB6D10025AD0E /* CustomFont.swift */; };
 		69E0ACBF295BD1110025AD0E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E0ACBE295BD1110025AD0E /* Extensions.swift */; };
+		69E8F10329656B4D00ABAFF6 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8F10229656B4D00ABAFF6 /* OnboardingViewModel.swift */; };
+		69E8F1062965744B00ABAFF6 /* SUImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8F1052965744B00ABAFF6 /* SUImagePickerView.swift */; };
+		69E8F108296588B500ABAFF6 /* SetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8F107296588B500ABAFF6 /* SetupViewModel.swift */; };
+		69E8F10A2965F90800ABAFF6 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8F1092965F90800ABAFF6 /* ConversationViewModel.swift */; };
+		69E8F10C2965FAEA00ABAFF6 /* LoveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8F10B2965FAE900ABAFF6 /* LoveViewModel.swift */; };
+		69E8F10E2966045B00ABAFF6 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8F10D2966045B00ABAFF6 /* UserProfileViewModel.swift */; };
+		69E8F112296608C100ABAFF6 /* CustomInterestBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8F111296608C100ABAFF6 /* CustomInterestBtn.swift */; };
+		69E8F1142966223400ABAFF6 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8F1132966223400ABAFF6 /* ChatViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +83,8 @@
 		69BB4DD3296335A200B7E8B9 /* LoveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveView.swift; sourceTree = "<group>"; };
 		69BB4DDA2963436900B7E8B9 /* MatchCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCard.swift; sourceTree = "<group>"; };
 		69BB4DDC2963438800B7E8B9 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
+		69BB4DDE2964A2F400B7E8B9 /* SetupProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileView.swift; sourceTree = "<group>"; };
+		69BB4DE42964B4F600B7E8B9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		69C8FFA8295CD71500894030 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		69C8FFAA295CDEB100894030 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		69C8FFAC295D08AE00894030 /* CustomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModal.swift; sourceTree = "<group>"; };
@@ -82,19 +92,25 @@
 		69C8FFB0295D0CC700894030 /* CustomSubmitBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubmitBtn.swift; sourceTree = "<group>"; };
 		69C8FFBF295D193500894030 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		69C8FFC1295DCD5C00894030 /* PreferenceBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceBtn.swift; sourceTree = "<group>"; };
-		69E0ACA4295BA62F0025AD0E /* test.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.riv; sourceTree = "<group>"; };
 		69E0ACA6295BA8C30025AD0E /* button.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = button.riv; sourceTree = "<group>"; };
 		69E0ACA7295BA8C80025AD0E /* check.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = check.riv; sourceTree = "<group>"; };
 		69E0ACA8295BA8CF0025AD0E /* menu_button.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = menu_button.riv; sourceTree = "<group>"; };
 		69E0ACA9295BA8CF0025AD0E /* confetti.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = confetti.riv; sourceTree = "<group>"; };
 		69E0ACAA295BA8CF0025AD0E /* icons.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.riv; sourceTree = "<group>"; };
-		69E0ACAB295BA8CF0025AD0E /* house.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = house.riv; sourceTree = "<group>"; };
 		69E0ACAC295BA8CF0025AD0E /* shapes.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.riv; sourceTree = "<group>"; };
 		69E0ACB5295BB5C40025AD0E /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		69E0ACB7295BB5CD0025AD0E /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		69E0ACB9295BB5DB0025AD0E /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		69E0ACBC295BB6D10025AD0E /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		69E0ACBE295BD1110025AD0E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		69E8F10229656B4D00ABAFF6 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		69E8F1052965744B00ABAFF6 /* SUImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUImagePickerView.swift; sourceTree = "<group>"; };
+		69E8F107296588B500ABAFF6 /* SetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewModel.swift; sourceTree = "<group>"; };
+		69E8F1092965F90800ABAFF6 /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
+		69E8F10B2965FAE900ABAFF6 /* LoveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveViewModel.swift; sourceTree = "<group>"; };
+		69E8F10D2966045B00ABAFF6 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		69E8F111296608C100ABAFF6 /* CustomInterestBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInterestBtn.swift; sourceTree = "<group>"; };
+		69E8F1132966223400ABAFF6 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +188,8 @@
 		69BB4DC129628CEC00B7E8B9 /* View model */ = {
 			isa = PBXGroup;
 			children = (
+				69E8F1092965F90800ABAFF6 /* ConversationViewModel.swift */,
+				69E8F1132966223400ABAFF6 /* ChatViewModel.swift */,
 			);
 			path = "View model";
 			sourceTree = "<group>";
@@ -200,6 +218,7 @@
 		69BB4DD5296335A700B7E8B9 /* View model */ = {
 			isa = PBXGroup;
 			children = (
+				69E8F10B2965FAE900ABAFF6 /* LoveViewModel.swift */,
 			);
 			path = "View model";
 			sourceTree = "<group>";
@@ -221,9 +240,43 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		69BB4DE02964B48300B7E8B9 /* User profile */ = {
+			isa = PBXGroup;
+			children = (
+				69BB4DE32964B4A600B7E8B9 /* Views */,
+				69BB4DE22964B49F00B7E8B9 /* Model */,
+				69BB4DE12964B49600B7E8B9 /* View model */,
+			);
+			path = "User profile";
+			sourceTree = "<group>";
+		};
+		69BB4DE12964B49600B7E8B9 /* View model */ = {
+			isa = PBXGroup;
+			children = (
+				69E8F10D2966045B00ABAFF6 /* UserProfileViewModel.swift */,
+			);
+			path = "View model";
+			sourceTree = "<group>";
+		};
+		69BB4DE22964B49F00B7E8B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		69BB4DE32964B4A600B7E8B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				69BB4DE42964B4F600B7E8B9 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		69C8FFB2295D17A900894030 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				69BB4DE02964B48300B7E8B9 /* User profile */,
 				69BB4DBE29628CAB00B7E8B9 /* Love */,
 				69BB4DBD29628CA200B7E8B9 /* Conversation */,
 				69C8FFBA295D188200894030 /* Home */,
@@ -235,6 +288,7 @@
 		69C8FFB4295D17CB00894030 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				69E8F1042965740B00ABAFF6 /* Utilities */,
 				69C8FFBB295D18BB00894030 /* Components */,
 				69C8FFB9295D184300894030 /* Modifiers */,
 			);
@@ -254,6 +308,8 @@
 		69C8FFB6295D17E400894030 /* View model */ = {
 			isa = PBXGroup;
 			children = (
+				69E8F10229656B4D00ABAFF6 /* OnboardingViewModel.swift */,
+				69E8F107296588B500ABAFF6 /* SetupViewModel.swift */,
 			);
 			path = "View model";
 			sourceTree = "<group>";
@@ -272,6 +328,7 @@
 				69C8FFA8295CD71500894030 /* SignInView.swift */,
 				69C8FFAE295D0BD000894030 /* SignUpView.swift */,
 				69C8FFBF295D193500894030 /* PreferencesView.swift */,
+				69BB4DDE2964A2F400B7E8B9 /* SetupProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +343,7 @@
 				69C8FFB0295D0CC700894030 /* CustomSubmitBtn.swift */,
 				69E0ACBE295BD1110025AD0E /* Extensions.swift */,
 				69BB4DD1296320E000B7E8B9 /* CustomChatIcons.swift */,
+				69E8F111296608C100ABAFF6 /* CustomInterestBtn.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -336,11 +394,9 @@
 		69E0ACB3295BA8F70025AD0E /* Rive assets */ = {
 			isa = PBXGroup;
 			children = (
-				69E0ACA4295BA62F0025AD0E /* test.riv */,
 				69E0ACA6295BA8C30025AD0E /* button.riv */,
 				69E0ACA7295BA8C80025AD0E /* check.riv */,
 				69E0ACA9295BA8CF0025AD0E /* confetti.riv */,
-				69E0ACAB295BA8CF0025AD0E /* house.riv */,
 				69E0ACAA295BA8CF0025AD0E /* icons.riv */,
 				69E0ACA8295BA8CF0025AD0E /* menu_button.riv */,
 				69E0ACAC295BA8CF0025AD0E /* shapes.riv */,
@@ -356,6 +412,14 @@
 				69E0ACB9295BB5DB0025AD0E /* Poppins-Bold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		69E8F1042965740B00ABAFF6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				69E8F1052965744B00ABAFF6 /* SUImagePickerView.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,9 +490,7 @@
 				69E0ACB1295BA8E50025AD0E /* check.riv in Resources */,
 				69E0ACB2295BA8EA0025AD0E /* button.riv in Resources */,
 				69E0ACAD295BA8D80025AD0E /* shapes.riv in Resources */,
-				69E0ACA5295BA62F0025AD0E /* test.riv in Resources */,
 				69E0ACAE295BA8DA0025AD0E /* menu_button.riv in Resources */,
-				69E0ACAF295BA8DD0025AD0E /* house.riv in Resources */,
 				696F2FA4295A7DA100FACEF5 /* Preview Assets.xcassets in Resources */,
 				69E0ACBA295BB5DB0025AD0E /* Poppins-Bold.ttf in Resources */,
 				696F2FA1295A7DA100FACEF5 /* Assets.xcassets in Resources */,
@@ -445,19 +507,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69BB4DDF2964A2F400B7E8B9 /* SetupProfileView.swift in Sources */,
 				69C8FFAB295CDEB100894030 /* CustomTextField.swift in Sources */,
 				69BB4DDD2963438800B7E8B9 /* Matches.swift in Sources */,
 				69BB4DB629609C8700B7E8B9 /* HomeView.swift in Sources */,
 				69C8FFC2295DCD5C00894030 /* PreferenceBtn.swift in Sources */,
 				69C8FFA9295CD71500894030 /* SignInView.swift in Sources */,
 				69BB4DCA29630DD200B7E8B9 /* ChatView.swift in Sources */,
+				69E8F10A2965F90800ABAFF6 /* ConversationViewModel.swift in Sources */,
 				69BB4DC82962988100B7E8B9 /* Conversations.swift in Sources */,
 				69BB4DBA2962780800B7E8B9 /* DailyPick.swift in Sources */,
 				69BB4DD0296313BF00B7E8B9 /* MessageBubble.swift in Sources */,
 				69BB4DDB2963436900B7E8B9 /* MatchCard.swift in Sources */,
 				697F63B7295B5EF100277E0A /* OnboardingView.swift in Sources */,
+				69E8F10C2965FAEA00ABAFF6 /* LoveViewModel.swift in Sources */,
 				69E0ACBD295BB6D10025AD0E /* CustomFont.swift in Sources */,
+				69E8F108296588B500ABAFF6 /* SetupViewModel.swift in Sources */,
 				69C8FFAD295D08AE00894030 /* CustomModal.swift in Sources */,
+				69E8F10E2966045B00ABAFF6 /* UserProfileViewModel.swift in Sources */,
 				69C8FFB1295D0CC700894030 /* CustomSubmitBtn.swift in Sources */,
 				69BB4DCC29630F2D00B7E8B9 /* ChatTitleRow.swift in Sources */,
 				69BB4DBC29628AF100B7E8B9 /* Friends.swift in Sources */,
@@ -466,13 +533,18 @@
 				69BB4DAD295E269200B7E8B9 /* TabBar.swift in Sources */,
 				69BB4DC62962934000B7E8B9 /* ChatCard.swift in Sources */,
 				69BB4DCE2963137800B7E8B9 /* Message.swift in Sources */,
+				69E8F1062965744B00ABAFF6 /* SUImagePickerView.swift in Sources */,
+				69BB4DE52964B4F600B7E8B9 /* ProfileView.swift in Sources */,
 				69C8FFAF295D0BD000894030 /* SignUpView.swift in Sources */,
 				696F2F9D295A7DA000FACEF5 /* Two_FoldApp.swift in Sources */,
+				69E8F1142966223400ABAFF6 /* ChatViewModel.swift in Sources */,
 				69BB4DB8296276C000B7E8B9 /* DailyPickCard.swift in Sources */,
+				69E8F10329656B4D00ABAFF6 /* OnboardingViewModel.swift in Sources */,
 				69C8FFC0295D193500894030 /* PreferencesView.swift in Sources */,
 				69BB4DC029628CE200B7E8B9 /* ConversationView.swift in Sources */,
 				69BB4DD4296335A200B7E8B9 /* LoveView.swift in Sources */,
 				69BB4DD2296320E000B7E8B9 /* CustomChatIcons.swift in Sources */,
+				69E8F112296608C100ABAFF6 /* CustomInterestBtn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

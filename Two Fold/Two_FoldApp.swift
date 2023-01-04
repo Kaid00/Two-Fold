@@ -15,8 +15,8 @@ struct Two_FoldApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if !userAuthenticated {
-                if !userSetupCompleted {
+            if userAuthenticated {
+                if userSetupCompleted {
                     ContentView()
                 } else {
                     PreferencesView()

@@ -9,20 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .home
+    @State var dismissTabBar: Bool = false
     var body: some View {
         ZStack {
             switch selectedTab {
             case .home:
                 HomeView()
             case .chat:
-                ConversationView()
+                ConversationView(dismissTabBar: $dismissTabBar)
             case .love:
                 LoveView()
             case .user:
-                Text("user")
+                ProfileView()
             }
             
-            TabBar()
+            if !dismissTabBar {
+                TabBar()
+            }
         }
     }
 }
