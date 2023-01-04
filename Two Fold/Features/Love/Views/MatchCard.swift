@@ -15,7 +15,7 @@ struct MatchCard: View, Identifiable {
             Image(match.profilePic)
                 .resizable()
                 .scaledToFill()
-                .frame(maxWidth: 310, maxHeight: 520)
+                .frame(maxWidth: 310, maxHeight: 500)
             
         }
         .background(.white)

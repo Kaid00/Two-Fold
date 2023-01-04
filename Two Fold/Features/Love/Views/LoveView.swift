@@ -175,7 +175,6 @@ struct LoveView: View {
                         
                     }
                 }
-                Spacer()
                 HStack(spacing: 40) {
                     Image(systemName: "x.circle.fill")
                         .symbolRenderingMode(.palette)
