@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChatTitleRow: View {
+    
     var body: some View {
         HStack(spacing: 20) {
             Image("Team 2")
@@ -16,10 +17,11 @@ struct ChatTitleRow: View {
                 .mask(Circle())
                 .frame(width: 50, height: 50)
             VStack(alignment: .leading) {
-                Text("Alvin & Eda")
+                Text("Annabelle & Keren")
                     .customFont(.title3)
+                    .frame(width: 200, height: 20, alignment: .leading)
                 
-                Text("Alvin, Eda, Karl, You")
+                Text("Annabelle, Keren, Karl, You")
                     .customFont(.footnote)
                     .foregroundColor(.secondary)
             }
