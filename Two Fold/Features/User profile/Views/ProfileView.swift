@@ -17,7 +17,7 @@ struct ProfileView: View {
             
             VStack {
                 HStack {
-                    Text("Profile")
+                    Text("profile")
                         .customFont(.title)
                     Spacer()
                     
